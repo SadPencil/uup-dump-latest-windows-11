@@ -5,6 +5,7 @@ The script requires the following applications:
  * wimlib-imagex - to export files from metadata ESD
  * chntpw - to modify registry of first index of boot.wim
  * genisoimage or mkisofs - to create ISO image
+ * aria2 - to download files from Microsoft
 
 Linux
 -----
@@ -12,12 +13,12 @@ If you use Debian or Ubuntu based distribution you can install these using
 the following command:
 
 ```bash
-sudo apt-get install cabextract wimtools chntpw genisoimage
+sudo apt-get install cabextract wimtools chntpw genisoimage aria2
 ```
 
 If you use Arch Linux you can also install these using the following command:
 ```bash
-sudo pacman -S cabextract wimlib chntpw cdrtools
+sudo pacman -S cabextract wimlib chntpw cdrtools aria2
 ```
 
 If you use any other distribution, you'll need to check its repository for the
