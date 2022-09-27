@@ -38,7 +38,7 @@ fi
 echo "Fetching the latest Windows 11 image..."
 arch="amd64"
 lang="zh-cn"
-latest_image="$(curl 'https://api.uupdump.net/listid.php?search=regex%3AWindows.11&sortByDate=1' | jq --arg arch "$arch" -c '[ .response.builds | to_entries | sort_by(.key | tonumber) | .[].value | select(.title | ( contains("Cumulative") or contains("Insider") or contains("Preview") or contains("Server") ) | not) | select(.arch == $arch) ][0]')"
+latest_image="$(curl 'https://api.uupdump.net/listid.php?search=regex%3AWindows.11&sortByDate=1' | jq --arg arch "$arch" -c '[ .response.builds | to_entries | sort_by(.key | tonumber) | .[].value | select(.title | ( contains("Cumulative") or contains("Insider") or contains("Preview") or contains("Server") or contains("server") ) | not) | select(.arch == $arch) ][0]')"
 uuid="$(echo $latest_image | jq -c -r .uuid)"
 echo "$latest_image" | jq
 editions="$(curl "https://api.uupdump.net/listeditions.php?lang=$lang&id=$uuid" | jq -c '.response.editionList')"
